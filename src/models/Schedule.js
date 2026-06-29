@@ -1,13 +1,10 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/db.js';
-
-const Assignment = sequelize.define('Assignment', {
+const Schedule = sequelize.define('ScheduleEvent', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   title: { type: DataTypes.STRING, allowNull: false },
-  description: DataTypes.TEXT,
-  dueDate: DataTypes.DATE,
-  maxPoints: { type: DataTypes.INTEGER, defaultValue: 100 },
+  startTime: DataTypes.DATE,
+  endTime: DataTypes.DATE,
   courseId: { type: DataTypes.INTEGER, allowNull: false }
 });
-
-export default Assignment;
+export default Schedule;

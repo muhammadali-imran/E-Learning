@@ -1,11 +1,10 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/db.js';
-
-const Quiz = sequelize.define('Quiz', {
+const Grade = sequelize.define('Grade', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  title: { type: DataTypes.STRING, allowNull: false },
-  timeLimit: { type: DataTypes.INTEGER, comment: 'In minutes' },
+  score: DataTypes.STRING,
+  type: DataTypes.ENUM('assignment', 'quiz', 'exam', 'final'),
+  userId: { type: DataTypes.INTEGER, allowNull: false },
   courseId: { type: DataTypes.INTEGER, allowNull: false }
 });
-
-export default Quiz;
+export default Grade;
